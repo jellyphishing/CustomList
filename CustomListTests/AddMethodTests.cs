@@ -5,24 +5,25 @@ namespace CustomListTests
     [TestClass]
     public class AddMethodTests
     {
-        [TestMethod]
+        [TestMethod]  //#1
         public void AddMethod_ItemsAdddedToList_CountGoesUp()
         {
             //Arrange
                         
-            int itemsAddedToList = 1;
+            string itemsAddedToList = "1";
             CustomList < string> myList = new CustomList<string>();
 
             //Act
 
-            myList.count(itemsAddedToList);
+            myList.Add(itemsAddedToList);
 
             //Assert
 
-            Assert.AreEqual(itemsAddedToList.count(1), items.count);
+            Assert.AreEqual( 1 , myList.Count);
+   
         }
 
-        [TestMethod]
+        [TestMethod]  //#2
         public void AddMethod_AddTwoItems_SecondItemAtIndexOne()
         {
             //Arrange
@@ -35,7 +36,7 @@ namespace CustomListTests
 
             Assert.AreEqual("22", myList[1]);
         }
-        [TestMethod]
+        [TestMethod] //#3
         public void AddMethod_AddOneItem_FirstItemAtIndexZero()
         {
             //Arrange
@@ -43,12 +44,12 @@ namespace CustomListTests
 
             //Act
             myList.Add("12");
-            myList.Add("22");
+           
             //Assert
 
             Assert.AreEqual("12", myList[0]);
         }
-        [TestMethod]
+        [TestMethod] //#4
         public void AddMethod_CapacityExceeded_CapacityIncreases() //????? Come Back to this
         {
             //Arrange
@@ -59,12 +60,12 @@ namespace CustomListTests
             myList.Add("22");
             myList.Add("10");
             myList.Add("13");
-
+            myList.Add("76");
             //Assert
 
-            Assert.AreEqual("22", myList[1]);
+            Assert.AreEqual(8, myList.Capacity);
         }
-        [TestMethod]
+        [TestMethod] //#5
         public void AddMethod_CapacityIncreases_ItemLeftInOriginalIndex()
         {
             //Arrange
@@ -73,9 +74,12 @@ namespace CustomListTests
             //Act
             myList.Add("12");
             myList.Add("22");
+            myList.Add("10");
+            myList.Add("13");
+            myList.Add("76");
             //Assert
 
-            Assert.AreEqual("22", myList[1]);
+            Assert.AreEqual("12", myList[0]);
         }
     }
 }

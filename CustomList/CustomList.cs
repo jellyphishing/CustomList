@@ -13,6 +13,33 @@ namespace CustomList
         private int capacity;
         private int count;
 
+        public int Capacity
+        {
+            get
+            {
+                return capacity;
+            }
+        }
+        public int Count 
+        { 
+            get 
+            { 
+                return count;
+            }
+        }
+
+        public T this[int index] //dont worry about this yet...YET
+        { 
+            get 
+            { 
+                return items[index];
+            }
+            set 
+            {
+                items[index] = value;
+            }
+        }
+
         //Constructor
         public CustomList()
         {
@@ -24,6 +51,23 @@ namespace CustomList
         //Member Methods (CAN DO)
         public void Add(T item)
         {
+            if (count < capacity)
+            {
+                items[count] = item;
+                count++;
+            }
+            else
+            {
+                capacity *= 2;
+                T[] temporaryArray = new T[capacity];
+                for (int i = 0; i < count; i++)
+                {
+                    temporaryArray[i] = items[i];
+                }
+                items = temporaryArray; //throw out older smaller one, put bigger copy into items
+                
+            }
+            
             //'item' parameter should be added to internal 'items' array
             //if items array is at capacity, double capacity and create new array
             //transfer all items to new array
