@@ -9,9 +9,9 @@ namespace CustomListTests
         public void AddMethod_ItemsAdddedToList_CountGoesUp()
         {
             //Arrange
-                        
+
             string itemsAddedToList = "1";
-            CustomList < string> myList = new CustomList<string>();
+            CustomList<string> myList = new CustomList<string>();
 
             //Act
 
@@ -19,8 +19,8 @@ namespace CustomListTests
 
             //Assert
 
-            Assert.AreEqual( 1 , myList.Count);
-   
+            Assert.AreEqual(1, myList.Count);
+
         }
 
         [TestMethod]  //#2
@@ -44,7 +44,7 @@ namespace CustomListTests
 
             //Act
             myList.Add("12");
-           
+
             //Assert
 
             Assert.AreEqual("12", myList[0]);
@@ -81,5 +81,99 @@ namespace CustomListTests
 
             Assert.AreEqual("12", myList[0]);
         }
+
+        public class RemoveMethodTests
+        {
+            [TestMethod]  //#1
+            public void RemoveMethod_ItemsRemovedFromList_CountDecreases()
+            {
+                //Arrange
+
+                string itemsRemovedFromList = "1";
+                CustomList<string> myList = new CustomList<string>();
+
+                //Act
+
+                myList.Remove(itemsRemovedFromList);
+
+                //Assert
+
+                Assert.AreEqual(1, myList.Count);
+
+            }
+            
+                [TestMethod]  //#2
+                public void RemoveMethod_ItemRemoved_MethodReturnsTrue()
+                {
+                //Arrange
+
+                string itemsRemovedFromList = "1";
+                    CustomList<string> myList = new CustomList<string>();
+
+                    //Act
+
+                    myList.Remove("");
+
+                //Assert
+
+                Assert.AreEqual( true, "1");
+
+                }
+            
+                [TestMethod]  //#3
+                public void //AddMethod_ItemsAdddedToList_CountGoesUp()
+               // {
+                    //Arrange
+
+                    //string itemsAddedToList = "1";
+                    //CustomList<string> myList = new CustomList<string>();
+
+                    ////Act
+
+                    //myList.Add(itemsAddedToList);
+
+                    ////Assert
+
+                    //Assert.AreEqual(1, myList.Count);
+
+                }
+        
+            [TestMethod]  //#4
+            //public void AddMethod_ItemsAdddedToList_CountGoesUp()
+           // {
+                //Arrange
+
+                //string itemsAddedToList = "1";
+                //CustomList<string> myList = new CustomList<string>();
+
+                ////Act
+
+                //myList.Add(itemsAddedToList);
+
+                ////Assert
+
+                //Assert.AreEqual(1, myList.Count);
+
+            }
+   
+    
+        [TestMethod]  //#5
+        public void // RemoveMethod_ItemsAdddedToList_CountGoesUp()
+       // {
+            //Arrange
+
+            //string itemsAddedToList = "1";
+            //CustomList<string> myList = new CustomList<string>();
+
+            ////Act
+
+            //myList.Add(itemsAddedToList);
+
+            ////Assert
+
+            //Assert.AreEqual(1, myList.Count);
+
+        }
+    }
     }
 }
