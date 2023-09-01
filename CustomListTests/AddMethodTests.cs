@@ -165,7 +165,7 @@ namespace CustomListTests
 
             //Assert
 
-            Assert.AreEqual("5", myList[3];
+            Assert.AreEqual("5", myList[3]);
 
         }
 
@@ -189,7 +189,7 @@ namespace CustomListTests
 
             //Assert
 
-            Assert.AreEqual("2", myList[0];
+            Assert.AreEqual("2", myList[0]);
 
         }
         public class ToStringMethodTests
@@ -213,62 +213,61 @@ namespace CustomListTests
 
 
                 //Assert
-            
-                Assert.AreEqual( , myList.<string>;
+
+                Assert.AreEqual("12345", myList.ToString());
 
             }
-            //public class ToStringMethodTests
-
-            //{
-                [TestMethod]  //#2
-                //public void ToStringMethodTests_CreateListOfStrings_ListCreated()
-                //{
-                //    //Arrange
 
 
-                //    CustomList<string> myList = new CustomList<string>();
 
-                //    //Act
-
-                //    myList.Add("1");
-                //    myList.Add("2");
-                //    myList.Add("3");
-                //    myList.Add("4");
-                //    myList.Add("5");
+            [TestMethod]  //#2
+            public void ToStringMethodTests_CreateEmptyList_EmptyStringCreated()
+            {
+                //Arrange
 
 
-                //    //Assert
+                CustomList<string> myList = new CustomList<string>();
 
-                //    Assert.AreEqual(, myList<string>;
+                //Act
 
-                //}
-
-           // }
-        //public class ToStringMethodTests
-
-        //{
-        //    [TestMethod]  //#3
-        //    public void ToStringMethodTests_CreateListOfStrings_ListCreated()
-        //    {
-        //        //Arrange
+                myList.Add("");
 
 
-        //        CustomList<string> myList = new CustomList<string>();
 
-        //        //Act
+                //Assert
 
-        //        myList.Add("1");
-        //        myList.Add("2");
-        //        myList.Add("3");
-        //        myList.Add("4");
-        //        myList.Add("5");
+                Assert.AreEqual("", myList.ToString());
+
+            }
 
 
-        //        //Assert
 
-        //        Assert.AreEqual(, myList<string>;
 
-        //    }
+            [TestMethod]  //#3
+            public void ToStringMethodTests_CreateListOfInts_IntListCreated()
+            {
+                //Arrange
 
+                
+                CustomList<int> numbers = new CustomList<int>();
+
+                //Act
+                
+                numbers.Add(1);
+                numbers.Add(2);
+                numbers.Add(3);
+                numbers.Add(4);
+                numbers.Add(5);
+                numbers.Add(6);
+
+
+
+                //Assert
+
+                Assert.AreEqual(123456, numbers.ToString());
+
+            }
         }
+    }
 }
+

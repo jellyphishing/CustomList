@@ -77,7 +77,18 @@ namespace CustomList
 
         public bool Remove(T item)
         {
-            if (count < 5) { } //////
+            if (count > items)
+            {
+
+            }
+
+            T[] temporaryArray = new T[count];
+            for (int i = 0; i > count; i--)
+            {
+                temporaryArray[i] = items[i];
+            }
+            temporaryArray[count] = item;
+            items = temporaryArray;
                       
             /// //If 'item' exists in the 'items' array, remove its first instance
             //Any items coming after the removed item should be shifted down so there is no empty index.
