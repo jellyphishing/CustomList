@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -66,6 +67,7 @@ namespace CustomList
                     temporaryArray[i] = items[i];
                 }
                 temporaryArray[count] = item;
+                count++;
                 items = temporaryArray; //throw out older smaller one, put bigger copy into items
                 
             }
@@ -77,24 +79,14 @@ namespace CustomList
 
         public bool Remove(T item)
         {
-            if (count > items)
-            {
+           
 
-            }
-
-            T[] temporaryArray = new T[count];
-            for (int i = 0; i > count; i--)
-            {
-                temporaryArray[i] = items[i];
-            }
-            temporaryArray[count] = item;
-            items = temporaryArray;
-                      
-            /// //If 'item' exists in the 'items' array, remove its first instance
-            //Any items coming after the removed item should be shifted down so there is no empty index.
-            //If 'item' was removed, return true. If no item was removed, return false.
-            return false;
+                /// //If 'item' exists in the 'items' array, remove its first instance
+                //Any items coming after the removed item should be shifted down so there is no empty index.
+                //If 'item' was removed, return true. If no item was removed, return false.
+                return false;
         }
+        
 
         public override string ToString()
         {
