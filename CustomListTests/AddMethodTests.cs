@@ -101,79 +101,174 @@ namespace CustomListTests
                 Assert.AreEqual(1, myList.Count);
 
             }
-            
-                [TestMethod]  //#2
-                public void RemoveMethod_ItemRemoved_MethodReturnsTrue()
-                {
+
+            [TestMethod]  //#2
+            public void RemoveMethod_ItemRemoved_MethodReturnsTrue()
+            {
                 //Arrange
 
-                string itemsRemovedFromList = "1";
-                    CustomList<string> myList = new CustomList<string>();
+                CustomList<string> myList = new CustomList<string>();
 
-                    //Act
-
-                    myList.Remove("");
+                //Act
+                myList.Add("1");
+                myList.Add("22");
+                myList.Add("10");
+                myList.Add("13");
+                bool wasItemRemoved = myList.Remove("1");
 
                 //Assert
 
-                Assert.AreEqual( true, "1");
-
-                }
-            
-                [TestMethod]  //#3
-                public void //AddMethod_ItemsAdddedToList_CountGoesUp()
-               // {
-                    //Arrange
-
-                    //string itemsAddedToList = "1";
-                    //CustomList<string> myList = new CustomList<string>();
-
-                    ////Act
-
-                    //myList.Add(itemsAddedToList);
-
-                    ////Assert
-
-                    //Assert.AreEqual(1, myList.Count);
-
-                }
-        
-            [TestMethod]  //#4
-            //public void AddMethod_ItemsAdddedToList_CountGoesUp()
-           // {
-                //Arrange
-
-                //string itemsAddedToList = "1";
-                //CustomList<string> myList = new CustomList<string>();
-
-                ////Act
-
-                //myList.Add(itemsAddedToList);
-
-                ////Assert
-
-                //Assert.AreEqual(1, myList.Count);
+                Assert.AreEqual(true, wasItemRemoved);
 
             }
-   
-    
-        [TestMethod]  //#5
-        public void // RemoveMethod_ItemsAdddedToList_CountGoesUp()
-       // {
-            //Arrange
 
-            //string itemsAddedToList = "1";
-            //CustomList<string> myList = new CustomList<string>();
+            [TestMethod]  //#3
+            public void RemoveMethod_ItemRemovedNotInList_CountDoesNotDecrease()
+            {
+                //Arrange
 
-            ////Act
 
-            //myList.Add(itemsAddedToList);
+                CustomList<string> myList = new CustomList<string>();
 
-            ////Assert
+                //Act
 
-            //Assert.AreEqual(1, myList.Count);
+                myList.Add("12");
+                myList.Add("22");
+                myList.Add("10");
+                myList.Add("13");
+                myList.Remove("99");
+                //Assert
+
+                Assert.AreEqual(4, myList.Count);
+            }
+
+
 
         }
-    }
-    }
+
+        [TestMethod]  //#4
+        public void RemoveMethod_ItemRemoved_ItemsShiftBackInIndex()
+        {
+            //Arrange
+
+
+            CustomList<string> myList = new CustomList<string>();
+
+            //Act
+
+            myList.Add("1");
+            myList.Add("2");
+            myList.Add("3");
+            myList.Add("4");
+            myList.Add("5");
+            myList.Remove("4");
+
+            //Assert
+
+            Assert.AreEqual("5", myList[3];
+
+        }
+
+
+        [TestMethod]  //#5
+        public void RemoveMethod_RemoveOneInstanceOnlyOfRepeatedItem_OnlyFirstInstanceRemoved()
+        {
+            //Arrange
+
+
+            CustomList<string> myList = new CustomList<string>();
+
+            //Act
+
+            myList.Add("4");
+            myList.Add("2");
+            myList.Add("3");
+            myList.Add("4");
+            myList.Add("5");
+            myList.Remove("4");
+
+            //Assert
+
+            Assert.AreEqual("2", myList[0];
+
+        }
+        public class ToStringMethodTests
+
+        {
+            [TestMethod]  //#1
+            public void ToStringMethodTests_CreateListOfStrings_ListCreated()
+            {
+                //Arrange
+
+
+                CustomList<string> myList = new CustomList<string>();
+
+                //Act
+
+                myList.Add("1");
+                myList.Add("2");
+                myList.Add("3");
+                myList.Add("4");
+                myList.Add("5");
+
+
+                //Assert
+            
+                Assert.AreEqual( , myList.<string>;
+
+            }
+            //public class ToStringMethodTests
+
+            //{
+                [TestMethod]  //#2
+                //public void ToStringMethodTests_CreateListOfStrings_ListCreated()
+                //{
+                //    //Arrange
+
+
+                //    CustomList<string> myList = new CustomList<string>();
+
+                //    //Act
+
+                //    myList.Add("1");
+                //    myList.Add("2");
+                //    myList.Add("3");
+                //    myList.Add("4");
+                //    myList.Add("5");
+
+
+                //    //Assert
+
+                //    Assert.AreEqual(, myList<string>;
+
+                //}
+
+           // }
+        //public class ToStringMethodTests
+
+        //{
+        //    [TestMethod]  //#3
+        //    public void ToStringMethodTests_CreateListOfStrings_ListCreated()
+        //    {
+        //        //Arrange
+
+
+        //        CustomList<string> myList = new CustomList<string>();
+
+        //        //Act
+
+        //        myList.Add("1");
+        //        myList.Add("2");
+        //        myList.Add("3");
+        //        myList.Add("4");
+        //        myList.Add("5");
+
+
+        //        //Assert
+
+        //        Assert.AreEqual(, myList<string>;
+
+        //    }
+
+        }
 }

@@ -18,6 +18,7 @@
             myExample.Add(6);
             myExample.Add(7);
             myExample.Add(8);
+            bool wasRemoved = myExample.Remove(1);
         }
     }
 }

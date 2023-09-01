@@ -20,12 +20,13 @@ namespace CustomList
                 return capacity;
             }
         }
-        public int Count 
+        public int Count
         { 
             get 
             { 
                 return count;
             }
+          
         }
 
         public T this[int index] //dont worry about this yet...YET
@@ -64,6 +65,7 @@ namespace CustomList
                 {
                     temporaryArray[i] = items[i];
                 }
+                temporaryArray[count] = item;
                 items = temporaryArray; //throw out older smaller one, put bigger copy into items
                 
             }
@@ -75,7 +77,7 @@ namespace CustomList
 
         public bool Remove(T item)
         {
-            if(count < //////
+            if (count < 5) { } //////
                       
             /// //If 'item' exists in the 'items' array, remove its first instance
             //Any items coming after the removed item should be shifted down so there is no empty index.
