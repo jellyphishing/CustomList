@@ -80,12 +80,39 @@ namespace CustomList
 
         public bool Remove(T item)
         {
-           
+            bool wasRemoved = false;
+            if (count == 1 && items[0].Equals(item))
+            {
+                items[0] = default(T);
+                wasRemoved = true;
+            }
+            else
+            {
+                T[] temporaryArray = new T[capacity];
+                for (int i = 0, j = 0; i < count; i++, j++)
+                {
+                    //basically items[i] == item
+                    if (items[i].Equals(item) && wasRemoved == false)
+                    {
+                        j--;
+                        wasRemoved = true;
+                    }
+                    else
+                    {
+                        temporaryArray[j] = items[i];
+                    }
 
+                }
+                items = temporaryArray;
+            }
+            if(wasRemoved == true)
+            {
+                count--;
+            }
                 /// //If 'item' exists in the 'items' array, remove its first instance
                 //Any items coming after the removed item should be shifted down so there is no empty index.
                 //If 'item' was removed, return true. If no item was removed, return false.
-                return false;
+                return wasRemoved;
         }
         
 
@@ -105,9 +132,15 @@ namespace CustomList
 
         public static CustomList<T> operator +(CustomList<T> firstList, CustomList<T> secondList)
         {
-           
+           CustomList<T> finalList = new CustomList<T>();
+
+            finalList.Add(firstList[0]);
+
+            //do code here
+
+
             //returns a single CustomList<T> that contains all items from firstList and all items from secondList 
-            return null;
+            return finalList;
         }
 
         public static CustomList<T> operator -(CustomList<T> firstList, CustomList<T> secondList)

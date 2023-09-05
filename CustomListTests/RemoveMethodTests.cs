@@ -3,6 +3,7 @@
 
 namespace CustomListTests
 {
+    [TestClass]
     public class RemoveMethodTests
     {
         [TestMethod]  //#1
@@ -14,7 +15,8 @@ namespace CustomListTests
             CustomList<string> myList = new CustomList<string>();
 
             //Act
-
+            myList.Add("1");
+            myList.Add("2");
             myList.Remove(itemsRemovedFromList);
 
             //Assert
@@ -110,8 +112,9 @@ namespace CustomListTests
 
             //Assert
 
-            Assert.AreEqual("2", myList[0]);
+            Assert.AreEqual("4", myList[2]);
 
         }
+
     }
 }
