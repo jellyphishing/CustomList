@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -90,12 +91,21 @@ namespace CustomList
 
         public override string ToString()
         {
+            //items needs to get turned into a single string.  Use a for loop. use the += operator
+            string finalList = "";
+            
+                for (int i = 0; i < count; i++)
+                {
+                    finalList += items[i].ToString();
+                }
             //returns a single string that contains all items from array
-            return "";
+            return finalList;
+            
         }
 
         public static CustomList<T> operator +(CustomList<T> firstList, CustomList<T> secondList)
         {
+           
             //returns a single CustomList<T> that contains all items from firstList and all items from secondList 
             return null;
         }

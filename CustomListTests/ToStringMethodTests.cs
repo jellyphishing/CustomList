@@ -2,6 +2,7 @@
 
 namespace CustomListTests
 {
+    [TestClass]
     public class ToStringMethodTests
 
     {
@@ -40,7 +41,6 @@ namespace CustomListTests
 
             //Act
 
-            myList.Add("");
 
 
 
@@ -57,9 +57,11 @@ namespace CustomListTests
         public void ToStringMethodTests_CreateListOfInts_IntListCreated()
         {
             //Arrange
-
-
+            string expected = "123456";
+            string actual;
             CustomList<int> numbers = new CustomList<int>();
+
+            
 
             //Act
 
@@ -70,11 +72,11 @@ namespace CustomListTests
             numbers.Add(5);
             numbers.Add(6);
 
-
+            actual = numbers.ToString();
 
             //Assert
 
-            Assert.AreEqual("123456", numbers.ToString());
+            Assert.AreEqual(expected, actual);
 
         }
     }
