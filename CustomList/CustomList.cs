@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Globalization;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CustomList
 {
-    public class CustomList<T>
+    public class CustomList<T> :IEnumerable
     {
         //Member Variables (HAS A)
         private T[] items;
@@ -119,29 +120,35 @@ namespace CustomList
         public override string ToString()
         {
             //items needs to get turned into a single string.  Use a for loop. use the += operator
-            string finalList = "";
+            string finalString = "";
             
                 for (int i = 0; i < count; i++)
                 {
-                    finalList += items[i].ToString();
+                    finalString += items[i].ToString();
                 }
             //returns a single string that contains all items from array
-            return finalList;
+            return finalString;
             
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            throw new NotImplementedException();
         }
 
         public static CustomList<T> operator +(CustomList<T> firstList, CustomList<T> secondList)
         {
-            CustomList<T> finalList = new CustomList<T>;
-           
+           CustomList<T> finalList = new CustomList<T>();
 
-            finalList.Add(firstList[0]);
-            finalList.Add(secondList[0]);
+            for (int i = 0; i < firstList.Count; i++)
+            {
 
-
-            //do code here
-
-            CustomList<T> finalResult = firstList + secondList;
+              finalList.Add(firstList[i]);
+            }
+            for (int i = 0; i < secondList.Count; i++)
+            {
+                finalList.Add(secondList[i]);
+            }
 
             //returns a single CustomList<T> that contains all items from firstList and all items from secondList 
             return finalList;
@@ -150,11 +157,14 @@ namespace CustomList
         public static CustomList<T> operator -(CustomList<T> firstList, CustomList<T> secondList)
         {
             CustomList<T> finalList = new CustomList<T>();
-            //finalList.Remove(firstList[0]);
-            //finalList.Add(secondList[0]);
-            //do code here<int>
-            CustomList<T> finalResult = firstList - secondList;
-
+            for (int i = 0; i < firstList.Count; i++)
+            {
+                finalList.Add(firstList[i]);
+            }
+            for (int i = 0; i < secondList.Count; i++)
+                {
+                finalList.Remove(secondList [i]);
+            }
             //returns a single CustomList<T> with all items from firstList, EXCEPT any items that also appear in secondList
             return finalList;
         }

@@ -26,7 +26,7 @@ namespace CustomListTests
 
             CustomList<int> finalResult = list1 + list2;
             //Assert
-            Assert.AreEqual(12345, finalResult.ToString());
+            Assert.AreEqual("12345", finalResult.ToString());
         }
 
         [TestMethod]  //#2
@@ -51,7 +51,7 @@ namespace CustomListTests
 
             CustomList<int> finalResult = list1 + list2;
             //Assert
-            Assert.AreEqual(12456, finalResult.ToString());
+            Assert.AreEqual("12456", finalResult.ToString());
         }
 
         [TestMethod]  //#3
@@ -72,7 +72,7 @@ namespace CustomListTests
 
             CustomList<int> finalResult = list1 + list2;
             //Assert
-            Assert.AreEqual(45, finalResult.ToString());
+            Assert.AreEqual("45", finalResult.ToString());
         }
     }
 }

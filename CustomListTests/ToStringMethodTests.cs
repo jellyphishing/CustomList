@@ -31,7 +31,7 @@ namespace CustomListTests
 
 
 
-        [TestMethod]  //#2
+        [TestMethod]  //#3
         public void ToStringMethodTests_CreateEmptyList_EmptyStringCreated()
         {
             //Arrange
@@ -53,7 +53,7 @@ namespace CustomListTests
 
 
 
-        [TestMethod]  //#3
+        [TestMethod]  //#2
         public void ToStringMethodTests_CreateListOfInts_IntListCreated()
         {
             //Arrange
